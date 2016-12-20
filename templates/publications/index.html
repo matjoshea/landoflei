@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Publications{% endblock %}
+{% block publication %}"active"{% endblock %}
+
+{% block body %}
+    <ol>
+        {% for publication in object_list %}
+            <li>{{ publication.citation }}</li>
+        {% endfor %}
+    </ol>
+{% endblock %}

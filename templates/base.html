@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Land of Lei{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <img class="img-responsive", src="../media/bannner.jpg">
+
+
+
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar-inverse">
+    <div class="container-fluid">
+
+        <!-- Header -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+                <a class="navbar-brand" href="{% url 'blog:index' %}">Land of Lei</a>
+        </div>
+
+        <!-- Items -->
+        <div class="collapse navbar-collapse" id ="topNavBar">
+            <ul class="nav navbar-nav">
+                <li class={% block projects %}""{% endblock %}>
+                    <a href="{% url 'projects:index' %}">
+                        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>&nbsp; Projects
+                    </a>
+                </li>
+                <li class={% block publication %}""{% endblock %}>
+                    <a href="{% url 'publications:index' %}">
+                        <span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp; Publications
+                    </a>
+                </li>
+                <li class={% block members %}""{% endblock %}>
+                    <a href="{% url 'members:index' %}">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; Members
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% block body%}
+{% endblock %}
+</div>
+</body>
+</html>

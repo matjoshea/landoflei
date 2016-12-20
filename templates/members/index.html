@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Members{% endblock %}
+{% block members %}"active"{% endblock %}
+
+{% block body %}
+
+    <img src="../../media/lei.jpg" class="img-responsive">
+    <h4>Xin Gen Lei</h4>
+    <I>Professor</I>
+    <li>Cornell University</li>
+    <li>Department of Animal Science</li>
+    <li>507 Tower Road Ithaca, NY 14850</li>
+    <li>email: xl20@cornell.edu</li>
+    <li>phone: (607)254-4703</li>
+
+    <h2>Current members:</h2>
+    {% for member in object_list %}
+        {% if not member.end_date %}
+            <img src="{{ member.picture.url }}" class="img-responsive", width="300", height="400">
+            <h4>{{ member.first_name }} {{ member.last_name }}</h4>
+            <I>{{ member.position }}</I>
+            <li>{{ member.start_date.month }}/{{ member.start_date.year }} - Present</li>
+            <li>Research interests: {{ member.research_interests }}</li>
+        {% endif %}
+    {% endfor %}
+    <h2>Past members:</h2>
+    {% for member in object_list %}
+        {% if member.end_date %}
+            <img src="{{ member.picture.url }}" class="img-responsive", width="300", height="400">
+            <h4>{{ member.first_name }} {{ member.last_name }}</h4>
+            <I>{{ member.position }}</I>
+            <li>Current employer: {{ member.new_employer }}</li>
+            <li>{{ member.start_date.month }}/{{ member.start_date.year }} -
+                {{ member.end_date.month }}/{{ member.end_date.year }}</li>
+            <li>Research interests: {{ member.research_interests }}</li>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

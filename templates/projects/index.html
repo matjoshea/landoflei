@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Projects{% endblock %}
+{% block projects %}"active"{% endblock %}
+
+{% block body %}
+    <h3>Current projects:</h3>
+    {% for project in all_projects %}
+        <div class="row">
+            <div class="col-xs-12 col-sm-5">
+                <img src="{{ project.picture.url }}" class="img-responsive" width="400">
+            </div>
+            <div class="col-xs-12 col-sm-7">
+                <div class="row">
+                    <div class="col-sm-11">
+                        <h2>{{ project.title }}</h2>
+                    </div>
+                </div>
+            </div>
+                <p>{{ project.description }}</p>
+                <h6><strong>project funded by: {{ project.funding }}</strong></h6></div>
+        <div class="col-xs-12">
+            <hr />
+        </div>
+        </div>
+    {% endfor %}
+{% endblock %}
